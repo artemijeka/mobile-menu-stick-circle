@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__box {
+  display: inline-flex;
+  width: 400px;
+  height: 250px;
+  flex-direction: column;
+  
+  transform: translateY(-30%) translateX(-20%);
+
+  position: relative;
+}
+.menu__btn {
+  display: inline-flex;
+  width: 50px;
+  height: 40px;
+  background-color: #54cdff;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: flex-end;
+  border: none;
+  border-radius: 0 0 0 0;
+  cursor: pointer;
+  outline: none;
+
+  transition: border-radius 0.5s;
+
+  position: absolute;
+
+  right: 0;
+  top: 0;
+}
+.menu__btn.--active {
+  border-radius: 12px 12px 0 0;
+
+  transition: border-radius 0.5s;
+}
+.menu__btn::before {
+  content: "";
+  display: inline-flex;
+  background-color: rgb(108, 35, 255);
+  width: 50px;
+  height: 7px;
+
+  transition-duration: 0.5s;
+  transform-origin: left bottom;
+
+  margin-bottom: auto;
+}
+.menu__btn.--active::before {
+  width: 40px;
+  transform: rotate(38deg) translate(8px, -1px);
+  border-radius: 3px;
+}
+
+.menu__btn::after {
+  content: "";
+  display: inline-flex;
+  background-color: rgb(108, 35, 255);
+  width: 50px;
+  height: 7px;
+
+  transition-duration: 0.5s;
+  transform-origin: center;
+
+  margin-bottom: auto;
+}
+.menu__btn.--active::after {
+  width: 40px;
+  transform: rotate(141deg) translate(-5px, -1px);
+  border-radius: 3px;
+}
+
+.menu {
+  display: inline-flex;
+  background-color: rgb(108, 35, 255);
+  width: 50px;
+  height: 7px;
+  overflow: hidden;
+
+  transform-origin: right top;
+  transition: width 0.5s, height 0.5s, transform 0.5s, border-radius 0.5s;
+  transition-delay: 0.5s, 1s, 1.5s, 1s; /* 1.5 */
+
+  position: absolute;
+  right: 0;
+  top: 40px;
+}
+.menu::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgb(108, 35, 255);
+  background: linear-gradient(111deg, rgba(108, 35, 255, 1) 0%, rgba(84, 205, 255, 1) 100%);
+  clip-path: circle(0px at 100% 100%);
+
+  transition: clip-path 1.5s;
+  transition-delay: 0s;
+
+  position: absolute;
+}
+
+.menu.--active {
+  width: 100%;
+  height: 100%;
+  border-radius: 27px 27px 0 27px;
+
+  transition-delay: 1.5s, 0.75s, 0s, 0.75s; /* 1.5 */
+
+  transform: rotate(-90deg) translateY(0px) translateY(-100%);
+}
+
+.menu.--active::after {
+  clip-path: circle(470px at 100% 100%);
+
+  transition: clip-path 2s;
+  transition-delay: 1.4s;
+}
+.menu ul {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  height: 400px;
+  list-style-type: none;
+  font-size: 33px;
+  opacity: 0;
+
+  transform: rotate(90deg);
+  transform-origin: 200px 200px;
+  transition: opacity 1s;
+  transition-delay: 0s;
+
+  z-index: 10;
+}
+.menu.--active ul {
+  opacity: 1;
+
+  transition: opacity 1.5s;
+  transition-delay: 2s;
+}
+.menu li {
+  text-align: center;
+  line-height: 160%;
+}
+.menu li a {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+.menu li a:hover {
+  font-weight: 700;
+}
